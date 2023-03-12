@@ -1,0 +1,16 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db_health_records
+    username: root
+    password: password
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      healthRecordAllergies:
+        register-health-indicator: true
+        max-wait-duration-in-half-open-state: 30s
+
