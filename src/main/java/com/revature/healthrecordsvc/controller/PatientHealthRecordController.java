@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @RestController
-@RequestMapping("/health-record")
+@RequestMapping("/api/health-record")
 public class PatientHealthRecordController {
 
     @GetMapping("/allergies")
@@ -21,7 +21,7 @@ public class PatientHealthRecordController {
     public List<Allergy> getAllAllergies() {
         List<Allergy> allergies = null;
         RestTemplate template = new RestTemplate();
-        allergies = template.getForObject("http://localhost:8080/allergies/", ArrayList.class);
+        allergies = template.getForObject("http://localhost:8080/api/allergies/", ArrayList.class);
         return allergies;
     }
 
